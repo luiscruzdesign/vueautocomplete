@@ -143,4 +143,12 @@
       clear: both;
     }
   }
+  @media only screen and (min-width: 1024px) {
+    img {
+      width: 33.3%;
+    }
+    .series-info {
+      width: 66.7%;
+    }
+  }
 </style>

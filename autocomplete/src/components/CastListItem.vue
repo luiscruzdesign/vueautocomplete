@@ -28,4 +28,9 @@
       width: 25%;
     }
   }
+  @media only screen and (min-width: 1024px) {
+    article {
+      width: 20%;
+    }
+  }
 </style>

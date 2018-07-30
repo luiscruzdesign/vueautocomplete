@@ -103,6 +103,9 @@
     margin-top: 30px;
   }
   @media only screen and (min-width: 768px) {
+    .center-input::after {
+      background-size: cover;
+    }
     div {
       height: 66px;
       padding: 0;
@@ -110,6 +113,7 @@
     h1 {
       font-size: 40px;
       margin-bottom: 30px;
+      width: 100%;
     }
     .input-container {
       width: 70%;

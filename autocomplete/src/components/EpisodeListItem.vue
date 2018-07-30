@@ -69,4 +69,16 @@
       left: 50%;
     }
   }
+  @media only screen and (min-width: 1024px) {
+    article {
+      width: 25%;
+    }
+    h2 {
+      font-size: 16px;
+    }
+    a {
+      width: 100px;
+      margin-left: -50px;
+    }
+  }
 </style>
