@@ -20,7 +20,7 @@
       </div>
       <h2>Cast</h2>
       <div class="cast-listing">
-        <cast-list-item v-for="(ator, i) in elenco" :elenco="elenco" :key="ator.id">
+        <cast-list-item v-for="ator in elenco" :ator="ator" :key="ator.id">
         </cast-list-item>
       </div>
     </div>
@@ -117,6 +117,10 @@
   .seriado-summary {
     margin: 30px 0 0 0;
     font-family: "Times New Roman", Times, serif;
+  }
+  .cast-listing {
+    display: flex;
+    flex-wrap: wrap;
   }
   @media only screen and (min-width: 768px) {
     img {
