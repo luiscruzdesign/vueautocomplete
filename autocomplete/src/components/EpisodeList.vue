@@ -56,14 +56,21 @@
             castQuery += id
             castQuery += '/cast'
 
-
-            // TODO: Change to axios
-            $.getJSON(`http://api.tvmaze.com/shows/${id}`)
-                .done(data => {this.seriado = data;})
-            $.getJSON(episodesQuery)
-                .done(data => {this.episodios = data;})
-            $.getJSON(castQuery)
-                .done(data => {this.elenco = data;})
+            this.$http.get(`http://api.tvmaze.com/shows/${id}`).then(response => {
+              this.seriado = response.body;
+            }, response => {
+              // error callback
+            });
+            this.$http.get(episodesQuery).then(response => {
+              this.episodios = response.body;
+            }, response => {
+              // error callback
+            });
+            this.$http.get(castQuery).then(response => {
+              this.elenco = response.body;
+            }, response => {
+              // error callback
+            });
         }
     };
 </script>
