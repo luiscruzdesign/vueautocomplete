@@ -1,11 +1,12 @@
 <template>
   <div class="center-input">
     <h1>Search for your next serie</h1>
-    <div class="input-container">
+    <!--<div class="input-container">
       <input type="text" name="" value="" placeholder="Start typing the serie name">
       <input type="submit" name="" value=">">
     </div>
-    <router-link :to="'/serie/169'">Detalhe de série</router-link>
+    <router-link :to="'/serie/169'">Detalhe de série</router-link>-->
+    <vue-instant :suggestion-attribute="suggestionAttribute" v-model="value" :disabled="false"  @input="changed" @click-button="clickButton" :show-autocomplete="true" :autofocus="false" :suggestions="suggestions" name="customName" placeholder="Start typing the serie name" type="google"></vue-instant>
   </div>
 </template>
 
@@ -14,10 +15,45 @@
         name: 'index',
         data() {
             return {
-                product: {}
+                product: {},
+                value: '',
+                suggestionAttribute: 'original_title',
+                suggestions: [],
+                selectedEvent: ""
             }
         },
         created() {
+        },
+        methods: {
+          clickButton: function() {
+            this.selectedEvent = 'click button'
+            console.log("click button")
+            console.log(this.value)
+            console.log(this.suggestions)
+            var suggestions = this.suggestions
+            var selectedName = this.value
+            suggestions.forEach(function(value) {
+              //console.log(value.original_title)
+              if (value.original_title === selectedName) {
+                console.log(value.id)
+              }
+            })
+          },
+          changed: function() {
+            var that = this
+            this.suggestions = []
+            let id = this.$route.params.id;
+            this.$http.get(`https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=` + this.value).then(response => {
+              response.data.results.forEach(function(a) {
+                that.suggestions.push(a)
+              })
+            }, response => {
+              // error callback
+            });
+          }
+        },
+        components: {
+            'vue-instant': VueInstant.VueInstant
         }
     };
 </script>

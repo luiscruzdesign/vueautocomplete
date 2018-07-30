@@ -4,8 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
+import 'vue-instant/dist/vue-instant.css'
+import VueInstant from 'vue-instant/dist/vue-instant.common'
 
 Vue.use(VueResource)
+Vue.use(VueInstant)
 
 Vue.config.productionTip = false
 
