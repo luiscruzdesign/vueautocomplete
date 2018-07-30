@@ -24,10 +24,12 @@
             }
         },
         created() {
-            // TODO: Change to axios
-            let id = this.$route.params.id;
-            $.getJSON(`http://api.tvmaze.com/episodes/${id}`)
-                .done(data => {this.product = data;})
+          let id = this.$route.params.id;
+          this.$http.get(`http://api.tvmaze.com/episodes/${id}`).then(response => {
+            this.product = response.body;
+          }, response => {
+            // error callback
+          });
         }
     };
 </script>
