@@ -10,12 +10,7 @@
 <script>
     export default {
         name: 'cast-list-item',
-        props: ['ator'],
-        methods: {
-            requestRemoval() {
-                this.$emit('remove');
-            }
-        }
+        props: ['ator']
     };
 </script>
 

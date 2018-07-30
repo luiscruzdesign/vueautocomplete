@@ -18,6 +18,7 @@
             }
         },
         created() {
+            // TODO: Change to axios
             let id = this.$route.params.id;
             $.getJSON(`http://api.tvmaze.com/episodes/${id}`)
                 .done(data => {this.product = data;})

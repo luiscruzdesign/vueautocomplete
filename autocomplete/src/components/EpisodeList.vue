@@ -56,6 +56,8 @@
             castQuery += id
             castQuery += '/cast'
 
+
+            // TODO: Change to axios
             $.getJSON(`http://api.tvmaze.com/shows/${id}`)
                 .done(data => {this.seriado = data;})
             $.getJSON(episodesQuery)

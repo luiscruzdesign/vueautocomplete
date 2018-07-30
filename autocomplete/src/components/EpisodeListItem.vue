@@ -11,12 +11,7 @@
 <script>
     export default {
         name: 'episode-list-item',
-        props: ['episodio'],
-        methods: {
-            requestRemoval() {
-                this.$emit('remove');
-            }
-        }
+        props: ['episodio']
     };
 </script>
 
