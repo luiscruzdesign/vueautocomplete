@@ -48,6 +48,16 @@
     .episodio-summary {
       font-family: "Times New Roman", Times, serif;
     }
+    button {
+      width: 300px;
+      background: #40ac57;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px;
+      border-radius: 3px;
+      color: white;
+    }
     @media only screen and (min-width: 768px) {
       img {
         width: 50%;
