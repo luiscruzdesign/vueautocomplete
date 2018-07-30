@@ -1,0 +1,120 @@
+<template>
+  <div class="center-input">
+    <h1>Search for your next serie</h1>
+    <div class="input-container">
+      <input type="text" name="" value="" placeholder="Start typing the serie name">
+      <input type="submit" name="" value=">">
+    </div>
+    <router-link :to="'/serie/169'">Detalhe de série</router-link>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: 'index',
+        data() {
+            return {
+                product: {}
+            }
+        },
+        created() {
+            let id = this.$route.params.id;
+            $.getJSON(`http://api.tvmaze.com/episodes/${id}`)
+                .done(data => {this.product = data;})
+        }
+    };
+</script>
+
+<style scoped>
+  .center-input {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    padding: 0 20px;
+    top: 0;
+    background: #000000;
+  }
+  .center-input::after {
+    content: "";
+    background: #000000 url('../assets/background.jpg') no-repeat;
+    background-position-x: center;
+    background-size: auto 100%;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+  *:not(.center-input) {
+    z-index: 1;
+  }
+  .input-container {
+    width: 100%;
+    position: relative;
+  }
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 0 15px;
+    color: #ffffff;
+  }
+  input {
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+  }
+  input:focus {
+    outline: none;
+  }
+  input[type="text"] {
+    width: 100%;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+    margin: 0;
+    text-indent: 10px;
+    font-size: 12px;
+  }
+  input[type="text"]:focus {
+    border: 2px solid #6ed86e;
+  }
+  input[type="submit"] {
+    background: green;
+    position: absolute;
+    border-radius: 0 5px 5px 0;
+    top: 0;
+    right: -4px;
+    height: 46px;
+    color: #ffffff;
+    width: 40px;
+    font-weight: bold;
+  }
+  input[type="submit"]:active {
+    background: #0c9c0c;
+  }
+  a {
+    color: white;
+    margin-top: 30px;
+  }
+  @media only screen and (min-width: 768px) {
+    div {
+      width: 100%;
+      height: 150px;
+      padding: 0;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    input {
+      width: 70%;
+      height: 60px;
+      font-size: 24px;
+      text-indent: 20px;
+    }
+  }
+</style>
