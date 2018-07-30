@@ -1,17 +1,16 @@
 <template>
   <article>
-    <h2>{{episodio.name}}</h2>
-    <h3>Season: {{episodio.season}} | Episode number {{episodio.number}} | Runtime: {{episodio.runtime}} minutes</h3>
-    <img :src="episodio.image['medium']" alt="image[medium]">
-    <div class="episodio-summary"v-html="episodio.summary"></div>
-    <router-link :to="`/episode/${episodio.id}`">Details</router-link>
+    <div v-for="person in elenco">
+      <img :src="person['character'].image['medium']" alt="">
+      {{person["person"].name}} as {{person["character"].name}}
+    </div>
   </article>
 </template>
 
 <script>
     export default {
-        name: 'episode-list-item',
-        props: ['episodio'],
+        name: 'cast-list-item',
+        props: ['elenco'],
         methods: {
             requestRemoval() {
                 this.$emit('remove');
