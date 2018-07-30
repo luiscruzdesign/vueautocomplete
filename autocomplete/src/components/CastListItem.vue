@@ -10,12 +10,7 @@
 <script>
     export default {
         name: 'cast-list-item',
-        props: ['ator'],
-        methods: {
-            requestRemoval() {
-                this.$emit('remove');
-            }
-        }
+        props: ['ator']
     };
 </script>
 
@@ -31,6 +26,11 @@
   @media only screen and (min-width: 768px) {
     article {
       width: 25%;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    article {
+      width: 20%;
     }
   }
 </style>

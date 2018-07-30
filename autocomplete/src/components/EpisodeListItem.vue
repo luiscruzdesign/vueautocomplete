@@ -11,12 +11,7 @@
 <script>
     export default {
         name: 'episode-list-item',
-        props: ['episodio'],
-        methods: {
-            requestRemoval() {
-                this.$emit('remove');
-            }
-        }
+        props: ['episodio']
     };
 </script>
 
@@ -72,6 +67,18 @@
       bottom: 0;
       margin-left: -150px;
       left: 50%;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    article {
+      width: 25%;
+    }
+    h2 {
+      font-size: 16px;
+    }
+    a {
+      width: 100px;
+      margin-left: -50px;
     }
   }
 </style>
