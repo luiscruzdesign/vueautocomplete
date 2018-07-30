@@ -1,6 +1,6 @@
 <template>
     <div class="episode-list">
-      <img :src="seriado.image['original']" alt="">
+      <!--<img :src="seriado.image['original']" alt="">
       <div class="series-info">
         <h1>{{seriado.name}} ({{seriado.rating['average']}})</h1>
         <h3>
@@ -22,7 +22,7 @@
       <div class="cast-listing">
         <cast-list-item v-for="ator in elenco" :ator="ator" :key="ator.id">
         </cast-list-item>
-      </div>
+      </div>-->
     </div>
 </template>
 
@@ -42,11 +42,12 @@
             return {
                 seriado: {},
                 episodios: {},
-                elenco: {}
+                elenco: {},
+                suggestions: []
             }
         },
         created() {
-            let id = this.$route.params.id;
+            /*let id = this.$route.params.id;
 
             let episodesQuery = 'http://api.tvmaze.com/shows/'
             episodesQuery += id
@@ -61,7 +62,10 @@
             $.getJSON(episodesQuery)
                 .done(data => {this.episodios = data;})
             $.getJSON(castQuery)
-                .done(data => {this.elenco = data;})
+                .done(data => {this.elenco = data;})*/
+            Vue.axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=12').then((response) => {
+              console.log(response.data)
+            })
         }
     };
 </script>

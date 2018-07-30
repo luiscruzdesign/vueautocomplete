@@ -12,16 +12,16 @@
 <script>
     export default {
         name: 'index',
-        data() {
+        /*data() {
             return {
                 product: {}
             }
         },
         created() {
             let id = this.$route.params.id;
-            $.getJSON(`http://api.tvmaze.com/episodes/${id}`)
+            $.getJSON(`http://api.tvmaze.com/episodes/169`)
                 .done(data => {this.product = data;})
-        }
+        }*/
     };
 </script>
 
