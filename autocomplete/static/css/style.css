@@ -118,7 +118,7 @@ a {
   margin: 0;
   border: 0;
   border-radius: 0 3px 3px 0;
-  background-color: #3e82f7;
+  background-color: green;
   padding: 0;
   width: 49px;
   height: 100%;
@@ -133,7 +133,7 @@ a {
 
 .sbx-custom__submit::before {
   display: inline-block;
-  margin-right: -4px;
+  margin-right: 0;
   height: 100%;
   vertical-align: middle;
   content: '';
