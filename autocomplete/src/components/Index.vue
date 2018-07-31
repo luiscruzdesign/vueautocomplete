@@ -1,11 +1,6 @@
 <template>
   <div class="center-input">
     <h1>Search for your next serie</h1>
-    <!--<div class="input-container">
-      <input type="text" name="" value="" placeholder="Start typing the serie name">
-      <input type="submit" name="" value=">">
-    </div>
-    <router-link :to="'/serie/169'">Detalhe de série</router-link>-->
     <vue-instant :suggestion-attribute="suggestionAttribute" v-model="value" :disabled="false"  @input="changed" @click-button="clickButton" :show-autocomplete="true" :autofocus="false" :suggestions="suggestions" name="customName" placeholder="Start typing the serie name" type="google"></vue-instant>
   </div>
 </template>
@@ -31,7 +26,9 @@
             var selectedName = this.value
             suggestions.forEach(function(value) {
               if (value.name === selectedName) {
-                console.log("redirecione! id: " + value.id)
+                var newUrl = "/#/serie/" + value.id;
+                // TODO: Change url with router programmatically
+                self.location = newUrl;
               }
             })
           },
