@@ -10,6 +10,7 @@
           <span v-for="day in seriado.schedule.days">{{ day }}s at</span> <span>{{seriado.schedule.time}}</span> on <span>{{seriado.network.name}}</span>
         </h5>
         <a class="oficial-site" :href="seriado.officialSite" target="_blank">Official site</a>
+        <button class="go-back" v-on:click="goBack()">Go Back</button>
         <div class="seriado-summary" v-html="seriado.summary"></div>
         <h4>Language: {{seriado.language}} | Premiered: {{seriado.premiered}} | Status: {{seriado.status}}</h4>
       </div>
@@ -37,6 +38,9 @@
             'cast-list-item': CastListItem
         },
         methods: {
+          goBack: function() {
+            window.history.back();
+          }
         },
         data() {
             return {
@@ -113,7 +117,7 @@
     text-align: center;
     margin: 5px 0 30px 0;
   }
-  .oficial-site {
+  .oficial-site, .go-back {
     width: 300px;
     background: #40ac57;
     display: block;
@@ -122,6 +126,10 @@
     padding: 10px;
     border-radius: 3px;
     color: white;
+  }
+  .go-back {
+    font-size: 16px;
+    box-sizing: content-box;
   }
   .seriado-summary {
     margin: 30px 0 0 0;
