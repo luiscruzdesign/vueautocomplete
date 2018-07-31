@@ -17,7 +17,7 @@
             return {
                 product: {},
                 value: '',
-                suggestionAttribute: 'original_title',
+                suggestionAttribute: 'name',
                 suggestions: [],
                 selectedEvent: ""
             }
@@ -27,25 +27,20 @@
         methods: {
           clickButton: function() {
             this.selectedEvent = 'click button'
-            console.log("click button")
-            console.log(this.value)
-            console.log(this.suggestions)
             var suggestions = this.suggestions
             var selectedName = this.value
             suggestions.forEach(function(value) {
-              //console.log(value.original_title)
-              if (value.original_title === selectedName) {
-                console.log(value.id)
+              if (value.name === selectedName) {
+                console.log("redirecione! id: " + value.id)
               }
             })
           },
           changed: function() {
             var that = this
             this.suggestions = []
-            let id = this.$route.params.id;
-            this.$http.get(`https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=` + this.value).then(response => {
-              response.data.results.forEach(function(a) {
-                that.suggestions.push(a)
+            this.$http.get(`http://api.tvmaze.com/search/shows?q=` + this.value).then(response => {
+              response.data.forEach(function(a) {
+                that.suggestions.push(a["show"])
               })
             }, response => {
               // error callback
