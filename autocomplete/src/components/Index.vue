@@ -1,7 +1,7 @@
 <template>
   <div class="center-input">
     <h1>Search for your next serie</h1>
-    <vue-instant :suggestion-attribute="suggestionAttribute" v-model="value" :disabled="false"  @input="changed" @click-button="clickButton" :show-autocomplete="true" :autofocus="false" :suggestions="suggestions" name="customName" placeholder="Start typing the serie name" type="google"></vue-instant>
+    <vue-instant :suggestion-attribute="suggestionAttribute" v-model="value" :disabled="false"  @input="changed" @click-button="clickButton" :show-autocomplete="true" :autofocus="false" :suggestions="suggestions" name="customName" placeholder="Start typing the serie name" type="custom"></vue-instant>
   </div>
 </template>
 
@@ -87,6 +87,7 @@
     text-align: center;
     margin: 0 20px 15px;
     color: #ffffff;
+    width: 100%;
   }
   input {
     height: 40px;
